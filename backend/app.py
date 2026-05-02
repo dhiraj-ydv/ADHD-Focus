@@ -97,11 +97,11 @@ def update_settings():
 def system_control():
     action = request.json.get('action')
     if action == 'stop':
-        with open('../stop.signal', 'w') as f:
+        with open('stop.signal', 'w') as f:
             f.write('stop')
         return jsonify({'message': 'Stop signal sent'})
     elif action == 'restart':
-        with open('../restart.signal', 'w') as f:
+        with open('restart.signal', 'w') as f:
             f.write('restart')
         return jsonify({'message': 'Restart signal sent'})
     return jsonify({'error': 'Invalid action'}), 400

@@ -15,6 +15,7 @@ env/
 .venv
 instance/
 *.db
+*.signal
 
 # IDE
 .vscode/

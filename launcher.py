@@ -37,18 +37,15 @@ def run():
             time.sleep(1)
         
         print("Cleaning up processes...")
-        backend.terminate()
-        frontend.terminate()
+        for p in [backend, frontend]:
+            if p.poll() is None: # Still running
+                subprocess.run(["taskkill", "/F", "/T", "/PID", str(p.pid)], 
+                             stdout=subprocess.DEVNULL, 
+                             stderr=subprocess.DEVNULL)
         
-        try:
-            backend.wait(timeout=5)
-            frontend.wait(timeout=5)
-        except subprocess.TimeoutExpired:
-            backend.kill()
-            frontend.kill()
-            
         if not should_restart:
             print("FocusFlow stopped.")
+            time.sleep(1)
             break
         
         print("Restarting FocusFlow in 2 seconds...")

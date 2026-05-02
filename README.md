@@ -24,27 +24,32 @@ FocusFlow is a productivity tool designed specifically for the ADHD brain, combi
 - Node.js (v16+)
 - npm
 
-### Installation
+### Installation & Launch
 
 1. **Clone the repository:**
    ```bash
-   git clone <your-repo-url>
+   git clone https://github.com/dhiraj-ydv/ADHD-Focus.git
    cd ADHD-Focus
    ```
 
-2. **Setup Backend:**
+2. **Setup (First time only):**
    ```bash
    cd backend
    pip install -r requirements.txt
-   python app.py
-   ```
-
-3. **Setup Frontend:**
-   ```bash
    cd ../frontend
    npm install
-   npm run dev
    ```
+
+3. **Run the App:**
+   Simply double-click the **`start.bat`** file in the root directory.
+   
+   - **Frontend:** http://localhost:8080
+   - **Backend:** http://localhost:5000
+
+## 🕹️ Controls
+You can manage the application lifecycle directly from the sidebar:
+- **Restart App:** Restarts both backend and frontend processes.
+- **Stop App:** Shuts down all processes and closes the terminal.
 
 ## 🧠 Design Philosophy
 
