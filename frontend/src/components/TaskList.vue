@@ -123,17 +123,25 @@ const deleteTask = (id) => {
   gap: 10px;
 }
 
-.task-options select, .task-options input {
+.task-options select {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background: #ffffff;
+  color: #000000;
+}
+
+.task-options select option {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.task-options input {
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
   background: rgba(255,255,255,0.05);
   color: inherit;
-}
-
-.task-options select option {
-  background-color: var(--bg-secondary);
-  color: white;
 }
 
 .btn-add {
