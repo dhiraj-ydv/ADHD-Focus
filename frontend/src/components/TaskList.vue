@@ -131,6 +131,11 @@ const deleteTask = (id) => {
   color: inherit;
 }
 
+.task-options select option {
+  background-color: var(--bg-secondary);
+  color: white;
+}
+
 .btn-add {
   padding: 8px 16px;
   border-radius: 8px;

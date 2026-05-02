@@ -272,10 +272,17 @@ nav button.active {
 
 .ambient-control select {
   background: var(--bg-primary);
-  color: white;
+  color: var(--text-primary);
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  width: 100%;
+  cursor: pointer;
+}
+
+.ambient-control select option {
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
 }
 
 .system-controls {
