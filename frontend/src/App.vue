@@ -16,6 +16,11 @@
           <option value="cafe">Cafe</option>
         </select>
       </div>
+
+      <div class="system-controls">
+        <button @click="systemControl('restart')" class="btn-restart">Restart App</button>
+        <button @click="systemControl('stop')" class="btn-stop">Stop App</button>
+      </div>
     </aside>
 
     <main class="content">
@@ -169,6 +174,17 @@ const handlePomoComplete = () => {
   }
 };
 
+const systemControl = async (action) => {
+  if (confirm(`Are you sure you want to ${action} the application?`)) {
+    try {
+      await axios.post(`${API_URL}/system/control`, { action });
+      alert(`System ${action} signal sent. The application will ${action} shortly.`);
+    } catch (err) {
+      console.error(`Failed to ${action} system`, err);
+    }
+  }
+};
+
 onMounted(() => {
   fetchTasks();
   fetchSettings();
@@ -260,6 +276,34 @@ nav button.active {
   padding: 8px;
   border-radius: 8px;
   border: 1px solid var(--border-color);
+}
+
+.system-controls {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.system-controls button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.btn-restart {
+  background: rgba(56, 189, 248, 0.1);
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color) !important;
+}
+
+.btn-stop {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid #ef4444 !important;
 }
 
 .content {
